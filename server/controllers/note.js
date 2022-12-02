@@ -3,8 +3,9 @@ import NoteData from '../models/note.js';
 export const getNotes = async (req, res) => {
     try {
         const allNotes = await NoteData.find();
-
+        console.log("It's working")
         res.status(200).json(allNotes);
+
     } catch (error) {
         res.status(404).json({ message: error.message })
     }
@@ -13,13 +14,13 @@ export const getNotes = async (req, res) => {
  export const createNote = async (req, res) => {
     const note = req.body;
 
-    const newNote = new NoteData(note);
+    const newNote = new NoteData(note); // Model(variable)
 
     try {
         await newNote.save();
-        res.status(201).json(newNote);
+        res.status(201).json(newNote); // 201 successful status response meaning request succeeded
     } catch (error) {
-        res.status(409).json({ message: error.message })
+        res.status(409).json({ message: error.message }) //409 means conflictif there's no student data
     }
 }
 

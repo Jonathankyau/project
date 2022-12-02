@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
-import Button from '@mui/material/Button';
 
 
 
@@ -18,12 +17,12 @@ export default function ShowNote() {
     const [notesList, setNoteList] = useState([])
 
     const deleteNote = (id) => {
-        axios.delete(`http://localhost:3000/notes/${id}`).then(() => {
+        axios.delete(`http://localhost:3000/`).then(() => {
             window.location.reload(false);
         })
     }
     useEffect(() => {
-        axios.get('http://localhost:3000/notes').then((allNotes) => {
+        axios.get('http://localhost:2121/notes').then((allNotes) => {
             setNoteList(allNotes.data);
         })
     }, [])

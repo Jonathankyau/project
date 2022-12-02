@@ -4,9 +4,10 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
     "./src/styles.js",
     "./src/index.js",
-    "./src/App.js"
+    "./src/App.js",
   ],
   theme: {
     extend: {
@@ -15,5 +16,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
